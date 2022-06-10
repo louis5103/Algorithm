@@ -8,3 +8,4 @@ edge.sort(key=lambda x: x[2])
 set = ()
 def kruscal(N, M, G):
     while len(set) < node_num:
+        pass
