@@ -34,4 +34,3 @@ while True:
 
     edge = [tuple(map(int, sys.stdin.readline().split())) for _ in range(edge_num)]  # G
     print(kruscal(node_num, edge_num, edge))
-
