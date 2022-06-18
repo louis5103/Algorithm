@@ -22,7 +22,7 @@ class Priority_Queue:
     def right(self, node):
         return (node << 1) + 1
 
-    def push(self, item):
+    def push(self, item):       # item은 노드 클래스의 인스턴스
         # 1: 힙 사이즈 +1
         # 2 : 마지막 힙 사이즈에 item.w 추가
         # 3 : 최고 루트 노드와 swap
@@ -32,11 +32,39 @@ class Priority_Queue:
 
         while cur_idx != 1 and item.w < self.container[cur_idx]:
             self.container[cur_idx] = self.container[self.parent(cur_idx)]
-            pass
-        pass
+            self.pos[self.container[cur_idx].v] = cur_idx       # v로 가는 최소의 가중치를 가진 인덱스를 저장하는 pos 리스트
+
+            cur_idx = self.parent(cur_idx)
+
+        self.container[cur_idx] = item
+        self.pos[item.v] = cur_idx
 
     def pop(self):
-        pass
+        realse_pop = self.container[1]
+
+        temp = self.container[self.heap_size]
+        self.heap_size -= 1
+
+        cur_idx = 1
+        child = self.left(cur_idx)
+
+        while child <= self.heap_size and self.container[child].w < self.container[cur_idx].w:
+            if self.right(cur_idx) <= self.heap_size and self.container[child].w > self.container[self.right(cur_idx)].w:
+                child = self.right(cur_idx)
+
+            if temp.w < self.container[child].w:
+                break
+
+            self.container[cur_idx] = self.container[child]
+            self.pos[self.container[cur_idx].v] = cur_idx
+
+            cur_idx = child
+            child = self.left(cur_idx)
+
+        self.container[cur_idx] = temp
+        self.pos[temp.v] = cur_idx
+
+        return realse_pop
 
     def decrease_weight(self, new_update):
         pass
