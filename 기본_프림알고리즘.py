@@ -2,7 +2,7 @@ import sys
 from math import inf
 
 N, M = map(int, sys.stdin.readline().split())
-adj_mat = [[0]*N for _ in range(N)]
+adj_mat = [[0] * N for _ in range(N)]
 adj_list = [[] for _ in range(N)]
 for _ in range(M):
     u, v, w = map(int, sys.stdin.readline().split())
@@ -12,13 +12,14 @@ for _ in range(M):
     adj_list[u].append([v, w])
     adj_list[v].append([u, w])
 
-def Prim(start):
+
+def Prim_mat(start):
     visited = set()
     visited.add(start)
 
     total_distance = 0
 
-    for _ in range(N-1):
+    for _ in range(N - 1):
         min_distance, next_node = inf, None
         for node in visited:
             for j in range(len(adj_mat[node])):
@@ -31,13 +32,13 @@ def Prim(start):
 
     return total_distance
 
+
 def Prim_list(start):
     visited = set()
     visited.add(start)
 
     total_distance = 0
-
-    for _ in range(N-1):
+    for _ in range(N - 1):
         min_distance, next_node = inf, None
         for Node in visited:
             for j in adj_list[Node]:
@@ -49,7 +50,8 @@ def Prim_list(start):
 
     return total_distance
 
-# print(Prim(0))
+
+print(Prim_mat(0))
 print(Prim_list(0))
 
 # 3 3
