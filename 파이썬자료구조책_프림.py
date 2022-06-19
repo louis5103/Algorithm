@@ -1,3 +1,7 @@
+# https://www.fun-coding.org/Chapter20-prim-live.html
+# https://deep-learning-study.tistory.com/595
+# https://codingcocoon.tistory.com/131
+
 class Node:
     def __init__(self, u, v, w):
         self.u = u
