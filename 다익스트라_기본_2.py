@@ -48,10 +48,10 @@ def Daijkstra(start, end):
         cur_idx = next_node
 
 
-    return MST
+    return MST, P
 # end까지의 최소거리는 아님. 불필요한 노드 추가되어 있음.
 
-print(Daijkstra(start, end))    # 무방향에 대해 적용가능. 방향그래프는 적용안됨
+MST, P = Daijkstra(start, end)    # 무방향에 대해 적용가능. 방향그래프는 적용안됨
 
-
+print(P)
 
