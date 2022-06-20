@@ -29,4 +29,5 @@ def kruscal(N, M, G):
             union_find(parent, G[i][0], G[i][1])
     return edge_cost[:-1]
 
+
 print(sum(kruscal(node_num, edge_num, edge)))
