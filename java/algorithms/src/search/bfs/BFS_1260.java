@@ -1,10 +1,7 @@
 package search.bfs;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class BFS_1260 {
     public static int N;
@@ -13,6 +10,7 @@ public class BFS_1260 {
 
     public static ArrayList<Integer>[] adj_list;
     public static boolean[] visited;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -32,5 +30,41 @@ public class BFS_1260 {
             adj_list[a].add(b);
             adj_list[b].add(a);
         }
+        for(int i=1; i<=N; i++){
+            Collections.sort(adj_list[i]);
+        }
+        dfs(S);
+        System.out.println();
+
+        visited = new boolean[N + 1];
+        bfs(S);
+        System.out.println();
     }
+
+    public static void dfs(int cur){
+        if(visited[cur]) return;
+        visited[cur] = true;
+        System.out.print(cur + " ");
+        for(int next_cur : adj_list[cur]){
+            if(!visited[next_cur]){
+                dfs(next_cur);
+            }
+        }
+    }
+    public static void bfs(int cur){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(cur);
+        visited[cur] = true;
+        while(!queue.isEmpty()){
+            cur = queue.poll();
+            System.out.print(cur+" ");
+            for(int next_cur : adj_list[cur]){
+                if(!visited[next_cur]){
+                    queue.add(next_cur);
+                    visited[next_cur] = true;
+                }
+            }
+        }
+    }
+
 }
