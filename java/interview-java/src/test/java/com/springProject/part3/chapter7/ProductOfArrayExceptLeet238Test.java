@@ -21,6 +21,6 @@ class ProductOfArrayExceptLeet238Test {
     @MethodSource("provideTestData")
     public void testProductExceptSelf(int[] input, int[] expected) {
         int[] actual = new ProductOfArrayExceptLeet238(input).productExceptSelf();
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 }
