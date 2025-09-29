@@ -463,4 +463,105 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij,java,windows,python,pycharm,git
+
+# Custom additions for Algorithm repository
+
+# VS Code settings and extensions
+.vscode/
+*.code-workspace
+
+# IntelliJ module files (more comprehensive)
+*.iml
+*.ipr
+*.iws
+
+# Eclipse settings
+.classpath
+.project
+.settings/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+.target/
+
+# Gradle
+.gradle/
+gradlew
+gradlew.bat
+gradle-wrapper.properties
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Algorithm problem related files
+input.txt
+output.txt
+*.in
+*.out
+test*.txt
+sample*.txt
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.fuse_hidden*
+.nfs*
+
+# JetBrains IDEs additional
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Python virtual environments (additional)
+.Python
+.pythonenv
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Java additional
+*.hprof
+*.jfr
+
+# Logs
+logs/
+*.log*
+
+# Keep original iml file reference for compatibility
 Algorithm.iml
