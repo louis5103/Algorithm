@@ -44,21 +44,41 @@ public class TrappingRainWaterLeet42 {
         Deque<Integer> stack = new ArrayDeque<>();
         int volume = 0;
 
-        for(int i = 0; i < height.length; i++){
-            // 변곡점일때 검사.
-            if(!stack.isEmpty() && height[i] > stack.peek()){
-                int targetIndex = stack.pop();
-                int distance = i - targetIndex - 1;
+        for(int i = 0; i < height.length; i++) {
+            while(!stack.isEmpty() && height[i] > height[stack.peek()]) {
+                int prevBottomIndex = stack.pop();
 
-                for(int innerIndex = i; i >= targetIndex; i--){
-                    int minHeight = Math.min(height[i], height[innerIndex]);
+                if(stack.isEmpty()) break;
+                int distance = i - stack.peek() - 1; // left wall 위치 index. left wall들중 가장 최근접
 
-                }
+                // left wall과 right wall 중 낮은 높이 - bottom 인덱스
+                int waters = Math.min(height[i], height[stack.peek()]) - height[prevBottomIndex];
+                volume += waters * distance;
             }
-            // push.
             stack.push(i);
         }
 
-        return -1;
+        return volume;
+    }
+
+
+
+    public int stackMethodSolution(){
+        Deque<Integer> stack = new ArrayDeque<>();
+        int volume = 0;
+
+        for (int i = 0; i < height.length; i++) {
+            while(!stack.isEmpty() && height[i] > height[stack.peek()]) {
+                Integer top = stack.pop();
+
+                if(stack.isEmpty()) break;
+                int distance = i - stack.peek() - 1;
+                int waters = Math.min(height[i], height[stack.peek()]) - height[top];
+                volume += distance * waters;
+
+            }
+            stack.push(i);
+        }
+        return volume;
     }
 }
